@@ -22,22 +22,20 @@ function ToDoList() {
 
   return (
     <>
-      <div className="grid justify-center mx-auto max-w-2xl">
+      <div className="text-center mx-auto max-w-lg px-8">
         <div className="w-full">
-          <h1 className="text-white text-4xl my-8 border-solid border-b-2 border-gray-400">
-            To-Do List
-          </h1>
-          <div>
+          <h1 className="text-white text-4xl my-8">To-Do List</h1>
+          <div className="flex gap-2 mb-6">
             <input
               type="text"
               placeholder="Enter a Task.."
-              className=" rounded-l-md py-1 px-3"
+              className=" rounded-md py-1 px-3 w-full"
               value={newTasks}
               onChange={handleInputChange}
             />
             <button
               onClick={addTask}
-              className=" bg-orange-400 py-1 px-3 rounded-r-md"
+              className=" bg-green-300 py-1 px-3 rounded-md hover:bg-green-600 hover:text-white transition-all"
             >
               Add
             </button>
@@ -45,25 +43,28 @@ function ToDoList() {
           <div>
             <ol>
               {tasks.map((task, index) => (
-                <li className="my-4 flex justify-between" key={index}>
-                  <span className=" text-white">
+                <li
+                  className="my-4 flex justify-between items-center bg-slate-300 px-4 py-2 rounded-md"
+                  key={index}
+                >
+                  <span>
                     {index + 1}. {task}
                   </span>
                   <div className="flex gap-2">
                     <button
-                      className=" hover:opacity-70"
+                      className=" hover:opacity-70 bg-red-400 py-0.5 px-1.5 rounded-md text-white"
                       onClick={() => deleteTask(index)}
                     >
-                      ❎
+                      Delete
                     </button>
                     <button
-                      className=" hover:opacity-70"
+                      className=" hover:opacity-70 bg-blue-400 py-0.5 px-1.5 rounded-full"
                       onClick={() => moveTaskUp(index)}
                     >
                       👆🏻
                     </button>
                     <button
-                      className=" hover:opacity-70"
+                      className=" hover:opacity-70 bg-blue-400 py-0.5 px-1.5 rounded-full"
                       onClick={() => moveTaskDown(index)}
                     >
                       👇
