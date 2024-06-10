@@ -48,9 +48,9 @@ function ToDoList() {
 
   return (
     <>
-      <div className="text-center mx-auto max-w-lg px-8">
+      <div className="text-center mx-auto max-w-2xl px-8 text-2xl">
         <div className="w-full">
-          <h1 className="text-white text-4xl my-8">To-Do List</h1>
+          <h1 className="text-white text-5xl my-8">To-Do List</h1>
           <div className="flex gap-2 mb-6">
             <input
               type="text"
