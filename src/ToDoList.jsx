@@ -51,7 +51,7 @@ function ToDoList() {
       <div className="text-center mx-auto max-w-2xl px-8 text-2xl">
         <div className="w-full">
           <h1 className="text-white text-5xl my-8">To-Do List</h1>
-          <div className="flex gap-2 mb-6">
+          <div className="flex gap-2 flex-col mb-12 sm:flex-row">
             <input
               type="text"
               placeholder="Enter a Task.."
@@ -70,30 +70,30 @@ function ToDoList() {
             <ol>
               {tasks.map((task, index) => (
                 <li
-                  className="my-4 flex justify-between items-center bg-slate-300 px-4 py-2 rounded-md"
+                  className="my-4 flex flex-col gap-2 justify-normal  items-end sm:items-center sm:flex-row  mb-6 "
                   key={index}
                 >
-                  <span>
+                  <span className="flex items-start bg-slate-300  px-4 py-2 rounded-md w-full">
                     {index + 1}. {task}
                   </span>
-                  <div className="flex gap-2">
+                  <div className=" flex  gap-2 items-start">
                     <button
-                      className=" hover:opacity-70 bg-red-400 py-0.5 px-1.5 rounded-md text-white"
-                      onClick={() => deleteTask(index)}
-                    >
-                      Delete
-                    </button>
-                    <button
-                      className=" hover:opacity-70 bg-blue-400 py-0.5 px-1.5 rounded-full"
+                      className=" hover:opacity-70 bg-blue-400 py-0.5 px-1.5 rounded-full self-start"
                       onClick={() => moveTaskUp(index)}
                     >
                       👆🏻
                     </button>
                     <button
-                      className=" hover:opacity-70 bg-blue-400 py-0.5 px-1.5 rounded-full"
+                      className=" hover:opacity-70 bg-blue-400 py-0.5 px-1.5 rounded-full self-start"
                       onClick={() => moveTaskDown(index)}
                     >
                       👇
+                    </button>
+                    <button
+                      className=" hover:opacity-70 bg-red-400 py-0.5 px-1.5 rounded-md text-white col-span-2 self-start"
+                      onClick={() => deleteTask(index)}
+                    >
+                      Delete
                     </button>
                   </div>
                 </li>
