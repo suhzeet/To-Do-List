@@ -1,11 +1,9 @@
 import { useState } from "react";
+import { FaArrowDown, FaArrowUp } from "react-icons/fa";
+import { MdAdd, MdDelete } from "react-icons/md";
 
 function ToDoList() {
-  const [tasks, setTasks] = useState([
-    "Eat breakfast",
-    "Do exercise",
-    "Feed a dog",
-  ]);
+  const [tasks, setTasks] = useState([]);
   const [newTasks, setNewTasks] = useState("");
 
   function handleInputChange(event) {
@@ -55,15 +53,15 @@ function ToDoList() {
             <input
               type="text"
               placeholder="Enter a Task.."
-              className=" rounded-md py-1 px-3 w-full"
+              className=" text-xl rounded-md py-1 px-3 w-full focus:outline-none"
               value={newTasks}
               onChange={handleInputChange}
             />
             <button
               onClick={addTask}
-              className=" bg-green-300 py-1 px-3 rounded-md hover:bg-green-600 hover:text-white transition-all"
+              className=" flex items-center justify-center bg-green-300 p-1 rounded-md hover:bg-green-600 hover:text-white transition-all"
             >
-              Add
+              <MdAdd className=" w-8 h-8" />
             </button>
           </div>
           <div>
@@ -76,24 +74,24 @@ function ToDoList() {
                   <span className="flex items-start bg-slate-300  px-4 py-2 rounded-md w-full">
                     {index + 1}. {task}
                   </span>
-                  <div className=" flex  gap-2 items-start">
+                  <div className=" flex items-center justify-center gap-2 ">
                     <button
-                      className=" hover:opacity-70 bg-blue-400 py-0.5 px-1.5 rounded-full self-start"
+                      className=" hover:opacity-70 bg-blue-400 p-2 rounded-full self-start"
                       onClick={() => moveTaskUp(index)}
                     >
-                      👆🏻
+                      <FaArrowUp />
                     </button>
                     <button
-                      className=" hover:opacity-70 bg-blue-400 py-0.5 px-1.5 rounded-full self-start"
+                      className=" hover:opacity-70 bg-blue-400 p-2 rounded-full self-start"
                       onClick={() => moveTaskDown(index)}
                     >
-                      👇
+                      <FaArrowDown />
                     </button>
                     <button
-                      className=" hover:opacity-70 bg-red-400 py-0.5 px-1.5 rounded-md text-white col-span-2 self-start"
+                      className=" hover:opacity-70 bg-red-400 p-2 rounded-full text-black col-span-2 self-start"
                       onClick={() => deleteTask(index)}
                     >
-                      Delete
+                      <MdDelete />
                     </button>
                   </div>
                 </li>
